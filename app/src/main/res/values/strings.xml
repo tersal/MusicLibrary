@@ -2,4 +2,12 @@
     <string name="app_name">MusicLibrary</string>
     <string name="clear_string">Clear</string>
     <string name="add_string">Add</string>
+    <string name="artist_string">Artist:</string>
+    <string name="song_string">Song:</string>
+    <string name="album_string">Album:</string>
+    <string name="year_string">Year:</string>
+    <string name="name">Name</string>
+    <string name="song">Song</string>
+    <string name="album">Album</string>
+    <string name="add">Add</string>
 </resources>
