@@ -32,7 +32,7 @@ class InsertFragment: Fragment() {
         val dataSource = MusicDatabase.getInstance(application).musicDatabaseDao
 
         // Get the factory
-        viewModelFactory = InsertViewModelFactory(dataSource, application)
+        viewModelFactory = InsertViewModelFactory(dataSource)
 
         // Reference to the viewModel
         viewModel = ViewModelProviders.of(this, viewModelFactory)
