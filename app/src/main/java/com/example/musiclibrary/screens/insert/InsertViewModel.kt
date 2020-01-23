@@ -1,14 +1,24 @@
 package com.example.musiclibrary.screens.insert
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import com.example.musiclibrary.database.MusicDatabaseDao
+import com.example.musiclibrary.database.MusicRecord
+import kotlinx.coroutines.*
 
 class InsertViewModel(val database: MusicDatabaseDao): ViewModel() {
 
-        @Suppress("UNUSED_PARAMETER")
-        fun onSaveRegister(artist: String, song: String, album: String, year: Int) {
+        private var viewModelJob = Job()
+        private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
+        private suspend fun insert(record: MusicRecord) {
+                withContext(Dispatchers.IO) {
+                        database.insert(record)
+                }
+        }
+
+        fun onSaveRegister(record: MusicRecord) {
+                uiScope.launch {
+                        insert(record)
+                }
         }
 }

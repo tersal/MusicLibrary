@@ -20,5 +20,5 @@ data class MusicRecord(
     var albumName: String = "",
 
     @ColumnInfo(name = "year")
-    var year: Int = -1
+    var year: String = ""
 )
